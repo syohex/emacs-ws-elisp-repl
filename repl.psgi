@@ -117,7 +117,9 @@ __DATA__
                 log('error: ' + ev.data);
             };
             $('#form').submit(function () {
-                ws.send($('#buffer').val());
+                var input = $('#buffer').val();
+                log(input);
+                ws.send(input);
                 return false;
             });
         });
