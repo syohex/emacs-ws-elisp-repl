@@ -118,7 +118,7 @@ __DATA__
             };
             $('#form').submit(function () {
                 var input = $('#buffer').val();
-                log(input);
+                log("> " + input);
                 ws.send(input);
                 return false;
             });

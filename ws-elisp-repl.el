@@ -37,6 +37,8 @@
   :type 'integer
   :group 'ws-elisp-repl)
 
+(defvar ws-elisp-repl:websocket)
+
 (defun ws-elisp-repl:on-message (websocket frame)
   (let* ((input (websocket-frame-payload frame))
          (retval (or (ignore-errors
@@ -57,7 +59,7 @@
 (defun ws-elisp-repl:init-websocket (port)
   (let ((url (format "ws://0.0.0.0:%d/emacs" port)))
     (message "Connect to %s" url)
-    (setq rtmv:websocket (ws-elisp-repl:create-websocket url))))
+    (setq ws-elisp-repl:websocket (ws-elisp-repl:create-websocket url))))
 
 (defun ws-elisp-repl:eval (str)
   (eval (read str)))
